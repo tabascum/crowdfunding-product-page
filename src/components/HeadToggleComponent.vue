@@ -1,18 +1,18 @@
 <script setup>
 import BookmarkBtn from './BookmarkBtn.vue'
-import ProjectBtn from './ProjectBtn.vue'
+import MainBtnComponent from './MainBtnComponent.vue'
 </script>
 
 <template>
   <section class="head-toggle">
-    <img src="../assets/logo-mastercraft.svg" alt="main logo" />
+    <img src="@/assets/logo-mastercraft.svg" alt="main logo" />
     <article>
       <h1>Mastercraft Bamboo Monitor Riser</h1>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
     </article>
 
     <article class="buttons-container">
-      <ProjectBtn />
+      <MainBtnComponent />
       <BookmarkBtn />
     </article>
   </section>
@@ -20,15 +20,15 @@ import ProjectBtn from './ProjectBtn.vue'
 
 <style scoped>
 .head-toggle {
-  background-color: #fafafa;
+  background-color: var(--white);
   position: absolute;
-  height: 30%;
-  width: 768px;
+  height: 16rem;
+  width: min(768px, 100%);
   text-align: center;
-  margin-block-start: 13rem;
   border-radius: 0.75rem;
   line-height: 2;
   padding-block: 3rem;
+  border: 0.1rem solid var(--light-gray);
 }
 
 img {

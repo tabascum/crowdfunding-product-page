@@ -19,14 +19,13 @@
   display: flex;
   justify-content: center;
   padding-block: 3.2rem;
-  color: #fafafa;
+  color: var(--white);
 }
 
 nav {
   display: inherit;
   align-items: center;
   justify-content: space-between;
-  font-weight: 500;
   width: 100%;
 }
 
@@ -37,6 +36,7 @@ ul {
 }
 
 li {
+  font-weight: var(--fw-normal);
   cursor: pointer;
 }
 </style>

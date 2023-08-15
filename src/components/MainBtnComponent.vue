@@ -1,13 +1,16 @@
-<script></script>
+<script setup>
+import { ref } from 'vue'
+
+const btnText = ref('Back this project')
+</script>
 
 <template>
-  <a class="back-btn" href="#">Back this project</a>
+  <a class="back-btn" href="#">{{ btnText }}</a>
 </template>
 
 <style scoped>
 .back-btn {
   display: flex;
-  color: #fafafa;
   width: 12rem;
   height: 3.5rem;
   border-radius: 5rem;
