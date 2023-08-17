@@ -1,16 +1,4 @@
-<script>
-import { defineProps } from 'vue'
-
-export default {
-  props: {
-    title: String,
-    content: String
-  },
-  setup(props) {
-    defineProps(props)
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <div class="about-inner-card">

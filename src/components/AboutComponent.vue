@@ -68,7 +68,7 @@ export default {
       </template>
     </InnerComponent>
 
-    <InnerComponent>
+    <InnerComponent class="disabled">
       <template #title>
         <h2>Mahogany Special Edition</h2>
         <p>Pledge $200 or more</p>
@@ -86,7 +86,7 @@ export default {
         </div>
       </template>
       <template #button>
-        <MainBtnComponent>Out of Stock</MainBtnComponent>
+        <MainBtnComponent class="disabled button">Out of Stock</MainBtnComponent>
       </template>
     </InnerComponent>
   </div>
@@ -99,7 +99,7 @@ export default {
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
-  padding: 3rem;
+  padding: 4rem 3rem;
   border-radius: 0.75rem;
   top: 54rem;
   display: flex;
@@ -111,5 +111,18 @@ export default {
 .about-container h1 {
   color: var(--black);
   font-weight: var(--fw-bolder);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  border: 0.1rem solid var(--light-gray);
+  cursor: not-allowed;
+}
+
+.button {
+  background-color: var(--moderate-cyan);
 }
 </style>
