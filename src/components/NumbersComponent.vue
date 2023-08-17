@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3rem 4rem;
+  padding: 2rem 3rem;
   border: 0.1rem solid var(--light-gray);
 }
 

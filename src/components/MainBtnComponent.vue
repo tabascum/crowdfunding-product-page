@@ -1,15 +1,13 @@
-<script setup>
-import { ref } from 'vue'
-
-const btnText = ref('Back this project')
-</script>
+<script setup></script>
 
 <template>
-  <a class="back-btn" href="#">{{ btnText }}</a>
+  <button class="main-button">
+    <slot></slot>
+  </button>
 </template>
 
 <style scoped>
-.back-btn {
+.main-button {
   display: flex;
   width: 12rem;
   height: 3.5rem;
@@ -19,11 +17,14 @@ const btnText = ref('Back this project')
   align-items: center;
   color: #fafafa;
   text-decoration: none;
+  font-size: 1rem;
   font-weight: var(--fw-bolder);
   transition: 0.6s all;
+  border: none;
 }
 
-.back-btn:hover {
+.main-button:hover {
+  cursor: pointer;
   background-color: var(--dark-cyan);
 }
 </style>

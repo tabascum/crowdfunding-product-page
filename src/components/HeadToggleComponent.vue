@@ -12,7 +12,7 @@ import MainBtnComponent from './MainBtnComponent.vue'
     </article>
 
     <article class="buttons-container">
-      <MainBtnComponent />
+      <MainBtnComponent>Back this project</MainBtnComponent>
       <BookmarkBtn />
     </article>
   </section>
@@ -27,7 +27,7 @@ import MainBtnComponent from './MainBtnComponent.vue'
   text-align: center;
   border-radius: 0.75rem;
   line-height: 2;
-  padding-block: 3rem;
+  padding-block: 2rem;
   border: 0.1rem solid var(--light-gray);
 }
 
@@ -50,6 +50,6 @@ p {
   display: flex;
   justify-content: space-between;
   margin-block-start: 2rem;
-  padding-inline: 4rem;
+  padding-inline: 3rem;
 }
 </style>
