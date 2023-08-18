@@ -1,42 +1,49 @@
 <script setup>
 import { ref } from 'vue'
+import MainBtnComponent from './MainBtnComponent.vue'
 
 const modalActive = ref(false)
 </script>
 
 <template>
+  <MainBtnComponent @click="modalActive = true">Back this project</MainBtnComponent>
   <Teleport to="body">
-    <transition name="modal-animation">
-      <div v-show="modalActive" class="modal">
-        <transition name="modal-animation-inner">
-          <div v-show="modalActive" class="modal-content">
-            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
-                fill="#000"
-                fill-rule="evenodd"
-                opacity=".4"
-              />
-            </svg>
-            <slot></slot>
-          </div>
-        </transition>
+    <Transition name="modal">
+      <div v-if="modalActive" class="modal-bg">
+        <div class="modal-content" ref="modal">
+          <svg
+            @click="modalActive = false"
+            class="close-btn"
+            width="15"
+            height="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+              fill="currentColor"
+              fill-rule="evenodd"
+              opacity=".4"
+            />
+          </svg>
+          <slot></slot>
+        </div>
       </div>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
 
 <style scoped>
-.v-enter-from,
-.v-leave-to {
+.modal-enter-from,
+.modal-leave-to {
   opacity: 0;
+  transform: scale(1.1);
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: 0.25s ease all;
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.25s ease;
 }
-.modal {
+.modal-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -49,12 +56,20 @@ const modalActive = ref(false)
 }
 
 .modal-content {
-  min-height: 100vh;
+  height: 90vh;
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
-  padding: 1rem;
+  padding: 2rem 3rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  color: var(--black);
+  cursor: pointer;
+  align-self: flex-end;
 }
 </style>

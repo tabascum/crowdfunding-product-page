@@ -28,10 +28,10 @@
   flex-direction: column;
   justify-content: space-between;
   transition: 0.6s all;
+  cursor: pointer;
 }
 
 .about-inner-card:hover {
-  cursor: pointer;
   border: 0.1rem solid var(--moderate-cyan);
 }
 
