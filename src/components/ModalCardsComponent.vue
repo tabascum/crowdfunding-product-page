@@ -8,7 +8,6 @@
 
 <style scoped>
 .modal-content {
-  height: 8rem;
   width: min(768px, 100%);
   background-color: var(--white);
   padding: 2rem;

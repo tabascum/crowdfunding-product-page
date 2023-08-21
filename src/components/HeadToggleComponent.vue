@@ -19,10 +19,50 @@ import ModalComponent from './ModalComponent.vue'
           <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
         </div>
 
-        <ModalCardsComponent> Test content </ModalCardsComponent>
-        <ModalCardsComponent> Test content </ModalCardsComponent>
-        <ModalCardsComponent> Test content </ModalCardsComponent>
-        <ModalCardsComponent> Test content </ModalCardsComponent>
+        <div class="modal-content">
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <div>
+                <input type="checkbox" name="" id="" />
+                <h2>Pledge with no reward</h2>
+              </div>
+              <div>
+                <span>0</span>
+                <p>left</p>
+              </div>
+            </div>
+          </ModalCardsComponent>
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <input type="checkbox" name="" id="" />
+              <h2>Pledge with no reward</h2>
+              <div class="modal-stock">
+                <span>0</span>
+                <p>left</p>
+              </div>
+            </div>
+          </ModalCardsComponent>
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <input type="checkbox" name="" id="" />
+              <h2>Pledge with no reward</h2>
+              <div class="modal-stock">
+                <span>0</span>
+                <p>left</p>
+              </div>
+            </div>
+          </ModalCardsComponent>
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <input type="checkbox" name="" id="" />
+              <h2>Pledge with no reward</h2>
+              <div class="modal-stock">
+                <span>0</span>
+                <p>left</p>
+              </div>
+            </div>
+          </ModalCardsComponent>
+        </div>
       </ModalComponent>
 
       <BookmarkBtn />
@@ -66,6 +106,40 @@ p {
 }
 
 .modal-header {
-  margin-block-start: 1rem;
+  margin-block: 0.5rem;
+}
+
+.modal-header h1 {
+  color: var(--black);
+  margin-block-end: 0.5rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 0.5rem;
+  gap: 1.5rem;
+}
+
+.modal-card {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-card > div {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.modal-card h2 {
+  color: var(--black);
+  font-weight: var(--fw-bold);
+}
+
+.modal-stock {
+  display: inline-flex;
+  justify-self: end;
 }
 </style>

@@ -56,7 +56,7 @@ const modalActive = ref(false)
 }
 
 .modal-content {
-  height: 90vh;
+  height: 95vh;
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
