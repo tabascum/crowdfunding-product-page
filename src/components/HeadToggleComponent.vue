@@ -26,6 +26,19 @@ import ModalComponent from './ModalComponent.vue'
                 <input type="checkbox" name="" id="" />
                 <h2>Pledge with no reward</h2>
               </div>
+
+              <span
+                >Choose to support us without a reward if you simply believe in our project. As a
+                backer, you will be signed up to receive product updates via email.</span
+              >
+            </div>
+          </ModalCardsComponent>
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <div>
+                <input type="checkbox" name="" id="" />
+                <h2>Bamboo Stand</h2>
+              </div>
               <div>
                 <span>0</span>
                 <p>left</p>
@@ -34,9 +47,11 @@ import ModalComponent from './ModalComponent.vue'
           </ModalCardsComponent>
           <ModalCardsComponent>
             <div class="modal-card">
-              <input type="checkbox" name="" id="" />
-              <h2>Pledge with no reward</h2>
-              <div class="modal-stock">
+              <div>
+                <input type="checkbox" name="" id="" />
+                <h2>Pledge with no reward</h2>
+              </div>
+              <div>
                 <span>0</span>
                 <p>left</p>
               </div>
@@ -44,19 +59,11 @@ import ModalComponent from './ModalComponent.vue'
           </ModalCardsComponent>
           <ModalCardsComponent>
             <div class="modal-card">
-              <input type="checkbox" name="" id="" />
-              <h2>Pledge with no reward</h2>
-              <div class="modal-stock">
-                <span>0</span>
-                <p>left</p>
+              <div>
+                <input type="checkbox" name="" id="" />
+                <h2>Pledge with no reward</h2>
               </div>
-            </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <input type="checkbox" name="" id="" />
-              <h2>Pledge with no reward</h2>
-              <div class="modal-stock">
+              <div>
                 <span>0</span>
                 <p>left</p>
               </div>
