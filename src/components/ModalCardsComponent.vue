@@ -10,7 +10,7 @@
 .modal-content {
   width: min(768px, 100%);
   background-color: var(--white);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 0.75rem;
   border: 0.1rem solid var(--light-gray);
   display: flex;

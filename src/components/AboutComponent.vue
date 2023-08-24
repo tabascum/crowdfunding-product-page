@@ -86,7 +86,7 @@ export default {
         </div>
       </template>
       <template #button>
-        <MainBtnComponent class="disabled button">Out of Stock</MainBtnComponent>
+        <MainBtnComponent class="button">Out of Stock</MainBtnComponent>
       </template>
     </InnerComponent>
   </div>
@@ -114,15 +114,21 @@ export default {
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.6;
+  cursor: initial;
 }
 
 .disabled:hover {
   border: 0.1rem solid var(--light-gray);
-  cursor: not-allowed;
+  cursor: normal;
 }
 
 .button {
-  background-color: var(--moderate-cyan);
+  background-color: var(--dark-gray);
+}
+
+.button:hover {
+  cursor: initial;
+  background-color: var(--dark-gray);
 }
 </style>

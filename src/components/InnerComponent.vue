@@ -31,10 +31,6 @@
   cursor: pointer;
 }
 
-.about-inner-card:hover {
-  border: 0.1rem solid var(--moderate-cyan);
-}
-
 .inner-header,
 .inner-button {
   display: flex;

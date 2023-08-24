@@ -4,7 +4,9 @@
 
   --black: hsl(0, 0%, 0%);
   --dark-gray: hsl(0, 0%, 48%);
+  --gray: hsl(0, 0%, 18%, 1);
   --light-gray: hsl(0, 0%, 95%);
+  --very-light-gray: hsl(0, 0%, 99%);
   --white: hsl(0, 0%, 100%);
 
   --font: 16px;
@@ -40,13 +42,15 @@ body::before {
   top: 0;
   left: 0;
   z-index: -1;
-  background: var(--light-gray) url('../components/images/image-hero-desktop.jpg') no-repeat top;
+  background: var(--very-light-gray) url('../components/images/image-hero-desktop.jpg') no-repeat
+    top;
   background-size: contain;
   position: absolute;
 }
 
 @media (max-width: 768px) {
   body::before {
-    background: #fafafa url('../components/images/image-hero-mobile.jpg') no-repeat top;
+    background: var(--very-light-gray) url('../components/images/image-hero-mobile.jpg') no-repeat
+      top;
   }
 }

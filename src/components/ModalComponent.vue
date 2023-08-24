@@ -56,7 +56,7 @@ const modalActive = ref(false)
 }
 
 .modal-content {
-  height: 95vh;
+  height: 90vh;
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
@@ -65,6 +65,21 @@ const modalActive = ref(false)
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  background-color: transparent;
+}
+::-webkit-scrollbar {
+  width: 3px !important;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 .close-btn {

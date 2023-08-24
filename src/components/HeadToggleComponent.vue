@@ -13,7 +13,7 @@ import ModalComponent from './ModalComponent.vue'
     </article>
 
     <article class="buttons-container">
-      <ModalComponent class="modal">
+      <ModalComponent>
         <div class="modal-header">
           <h1>Back this project</h1>
           <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
@@ -22,46 +22,24 @@ import ModalComponent from './ModalComponent.vue'
         <div class="modal-content">
           <ModalCardsComponent>
             <div class="modal-card">
-              <div>
-                <input type="checkbox" name="" id="" />
-                <h2>Pledge with no reward</h2>
+              <div class="card-radio">
+                <input type="radio" name="" id="" />
+                <span class="checkmark"></span>
               </div>
-
-              <span
-                >Choose to support us without a reward if you simply believe in our project. As a
-                backer, you will be signed up to receive product updates via email.</span
-              >
+              <div class="card-one">
+                <h2>Pledge with no reward</h2>
+                <p>
+                  Choose to support us without a reward if you simply believe in our project. As a
+                  backer, you will be signed up to receive product updates via email.
+                </p>
+              </div>
             </div>
           </ModalCardsComponent>
           <ModalCardsComponent>
             <div class="modal-card">
+              <input type="radio" checked="checked" name="radio" id="" />
               <div>
-                <input type="checkbox" name="" id="" />
                 <h2>Bamboo Stand</h2>
-              </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
-              </div>
-            </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div>
-                <input type="checkbox" name="" id="" />
-                <h2>Pledge with no reward</h2>
-              </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
-              </div>
-            </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div>
-                <input type="checkbox" name="" id="" />
-                <h2>Pledge with no reward</h2>
               </div>
               <div>
                 <span>0</span>
@@ -129,13 +107,13 @@ p {
 }
 
 .modal-card {
-  display: flex;
   gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
 }
 
-.modal-card > div {
+.modal-card div {
   display: inline-flex;
   gap: 0.5rem;
 }
@@ -145,8 +123,18 @@ p {
   font-weight: var(--fw-bold);
 }
 
+.card-one {
+  display: inherit;
+  flex-direction: column;
+}
+
 .modal-stock {
   display: inline-flex;
   justify-self: end;
+}
+
+.no-reward {
+  display: flex;
+  flex-direction: column;
 }
 </style>
