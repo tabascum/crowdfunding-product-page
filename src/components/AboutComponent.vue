@@ -1,13 +1,6 @@
-<script>
+<script setup>
 import InnerComponent from './InnerComponent.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
-
-export default {
-  components: {
-    InnerComponent,
-    MainBtnComponent
-  }
-}
 </script>
 
 <template>

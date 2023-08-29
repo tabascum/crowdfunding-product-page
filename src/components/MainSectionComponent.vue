@@ -2,6 +2,7 @@
 import AboutComponent from './AboutComponent.vue'
 import HeadToggleComponent from './HeadToggleComponent.vue'
 import NumbersComponent from './NumbersComponent.vue'
+import ModalComponent from './ModalComponent.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import NumbersComponent from './NumbersComponent.vue'
     <HeadToggleComponent />
     <NumbersComponent />
     <AboutComponent />
+    <ModalComponent />
   </section>
 </template>
 

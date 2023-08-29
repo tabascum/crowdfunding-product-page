@@ -1,7 +1,10 @@
 <script setup>
 import BookmarkBtn from './BookmarkBtn.vue'
-import ModalCardsComponent from './ModalCardsComponent.vue'
-import ModalComponent from './ModalComponent.vue'
+import MainBtnComponent from './MainBtnComponent.vue'
+
+import { useModalToggle } from '../../stores/modalToggle.js'
+
+const modalOpen = useModalToggle()
 </script>
 
 <template>
@@ -13,43 +16,7 @@ import ModalComponent from './ModalComponent.vue'
     </article>
 
     <article class="buttons-container">
-      <ModalComponent>
-        <div class="modal-header">
-          <h1>Back this project</h1>
-          <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-        </div>
-
-        <div class="modal-content">
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div class="card-radio">
-                <input type="radio" name="" id="" />
-                <span class="checkmark"></span>
-              </div>
-              <div class="card-one">
-                <h2>Pledge with no reward</h2>
-                <p>
-                  Choose to support us without a reward if you simply believe in our project. As a
-                  backer, you will be signed up to receive product updates via email.
-                </p>
-              </div>
-            </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <input type="radio" checked="checked" name="radio" id="" />
-              <div>
-                <h2>Bamboo Stand</h2>
-              </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
-              </div>
-            </div>
-          </ModalCardsComponent>
-        </div>
-      </ModalComponent>
-
+      <MainBtnComponent @click="modalOpen.isModalActive">Back this project</MainBtnComponent>
       <BookmarkBtn />
     </article>
   </section>
