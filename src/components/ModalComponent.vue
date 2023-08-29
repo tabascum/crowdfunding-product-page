@@ -1,14 +1,23 @@
 <script setup>
 import ModalCardsComponent from './ModalCardsComponent.vue'
+import { useModalToggle } from '../../stores/modalToggle'
+
+const modalToggle = useModalToggle()
+
+const openOrClose = () => {
+  modalToggle.openOrClose()
+}
+
+const isModalOpen = modalToggle.isModalOpen
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="modalActive" class="modal-bg">
+      <div v-if="isModalOpen" class="modal-bg">
         <div class="modal-content" ref="modal">
           <svg
-            @click="modalActive = false"
+            @click="openOrClose"
             class="close-btn"
             width="15"
             height="15"

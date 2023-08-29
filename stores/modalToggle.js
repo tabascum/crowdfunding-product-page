@@ -3,11 +3,11 @@ import { defineStore } from 'pinia'
 export const useModalToggle = defineStore({
   id: 'modalAcess',
   state: () => ({
-    isModalActive: false
+    isModalOpen: false
   }),
   actions: {
-    changeState() {
-      this.isModalActive = true
+    openOrClose() {
+      this.isModalOpen ? (this.isModalOpen = true) : (this.isModalOpen = false)
     }
   }
 })

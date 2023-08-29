@@ -2,9 +2,13 @@
 import BookmarkBtn from './BookmarkBtn.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
 
-import { useModalToggle } from '../../stores/modalToggle.js'
+import { useModalToggle } from '../../stores/modalToggle'
 
-const modalOpen = useModalToggle()
+const modalToggle = useModalToggle()
+
+const openOrClose = () => {
+  modalToggle.openOrClose()
+}
 </script>
 
 <template>
@@ -16,7 +20,7 @@ const modalOpen = useModalToggle()
     </article>
 
     <article class="buttons-container">
-      <MainBtnComponent @click="modalOpen.isModalActive">Back this project</MainBtnComponent>
+      <MainBtnComponent @click="openOrClose">Back this project</MainBtnComponent>
       <BookmarkBtn />
     </article>
   </section>
