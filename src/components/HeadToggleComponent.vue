@@ -6,8 +6,8 @@ import { useModalToggle } from '../../stores/modalToggle'
 
 const modalToggle = useModalToggle()
 
-const openOrClose = () => {
-  modalToggle.openOrClose()
+const openModal = () => {
+  modalToggle.openModal()
 }
 </script>
 
@@ -20,7 +20,7 @@ const openOrClose = () => {
     </article>
 
     <article class="buttons-container">
-      <MainBtnComponent @click="openOrClose">Back this project</MainBtnComponent>
+      <MainBtnComponent @click="openModal">Back this project</MainBtnComponent>
       <BookmarkBtn />
     </article>
   </section>

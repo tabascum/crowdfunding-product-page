@@ -6,8 +6,12 @@ export const useModalToggle = defineStore({
     isModalOpen: false
   }),
   actions: {
-    openOrClose() {
-      this.isModalOpen ? (this.isModalOpen = true) : (this.isModalOpen = false)
+    openModal() {
+      this.isModalOpen = true
+    },
+
+    closeModal() {
+      this.isModalOpen = false
     }
   }
 })

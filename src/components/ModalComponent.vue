@@ -4,8 +4,8 @@ import { useModalToggle } from '../../stores/modalToggle'
 
 const modalToggle = useModalToggle()
 
-const openOrClose = () => {
-  modalToggle.openOrClose()
+const closeModal = () => {
+  modalToggle.closeModal()
 }
 
 const isModalOpen = modalToggle.isModalOpen
@@ -17,7 +17,7 @@ const isModalOpen = modalToggle.isModalOpen
       <div v-if="isModalOpen" class="modal-bg">
         <div class="modal-content" ref="modal">
           <svg
-            @click="openOrClose"
+            @click="closeModal"
             class="close-btn"
             width="15"
             height="15"
