@@ -40,7 +40,7 @@ const closeModal = () => {
                 <span class="checkmark"></span>
               </div>
               <div class="card-one">
-                <h2>Pledge with no reward</h2>
+                <p>Pledge with no reward</p>
                 <p>
                   Choose to support us without a reward if you simply believe in our project. As a
                   backer, you will be signed up to receive product updates via email.
@@ -49,38 +49,51 @@ const closeModal = () => {
             </div>
           </ModalCardsComponent>
           <ModalCardsComponent>
-            <div class="modal-card">
-              <input type="radio" checked="checked" name="radio" id="" />
-              <div>
-                <h2>Bamboo Stand</h2>
+            <div class="modal-card selected">
+              <div class="card-radio">
+                <input type="radio" checked="checked" name="" id="" />
+                <span class="checkmark"></span>
               </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
-              </div>
-            </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <input type="radio" checked="checked" name="radio" id="" />
-              <div>
-                <h2>Bamboo Stand</h2>
-              </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
+              <div class="card-one">
+                <div class="pledge-header">
+                  <p>Bamboo Stand</p>
+                  <p>Pledge $25 or more</p>
+                  <span> 101 left </span>
+                </div>
+                <p>
+                  You get an ergonomic stand made of natural bamboo. You've helped us launch our
+                  promotional campaign, and you’ll be added to a special Backer member list.
+                </p>
               </div>
             </div>
           </ModalCardsComponent>
           <ModalCardsComponent>
             <div class="modal-card">
-              <input type="radio" checked="checked" name="radio" id="" />
-              <div>
-                <h2>Bamboo Stand</h2>
+              <div class="card-radio">
+                <input type="radio" name="" id="" />
+                <span class="checkmark"></span>
               </div>
-              <div>
-                <span>0</span>
-                <p>left</p>
+              <div class="pledge">
+                <p>Black Edition Stand</p>
+                <p>
+                  You get a Black Special Edition computer stand and a personal thank you. You’ll be
+                  added to our Backer member list. Shipping is included.
+                </p>
+              </div>
+            </div>
+          </ModalCardsComponent>
+          <ModalCardsComponent>
+            <div class="modal-card">
+              <div class="card-radio">
+                <input type="radio" name="" id="" />
+                <span class="checkmark"></span>
+              </div>
+              <div class="pledge">
+                <p>Mahogany Special Edition</p>
+                <p>
+                  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal
+                  thank you. You’ll be added to our Backer member list. Shipping is included.
+                </p>
               </div>
             </div>
           </ModalCardsComponent>
@@ -146,24 +159,9 @@ const closeModal = () => {
   align-self: flex-end;
 }
 
-.modal-header h1 {
-  color: var(--black);
-  font-weight: var(--fw-bolder);
-  font-size: 1.5rem;
-}
-
-.modal-content-inner {
-  display: flex;
-  flex-direction: column;
-  margin-block-start: 0.5rem;
-  gap: 1rem;
-}
-
 .modal-card {
-  gap: 0.5rem;
   display: flex;
-  align-items: flex-start;
-  justify-content: start;
+  justify-content: center;
 }
 
 .modal-card div {
@@ -172,11 +170,79 @@ const closeModal = () => {
 }
 
 .modal-card h2 {
+  font-size: 1.2rem;
   color: var(--black);
   font-weight: var(--fw-bold);
 }
+.modal-header h1 {
+  color: var(--black);
+  font-weight: var(--fw-bolder);
+  font-size: 1.5rem;
+  line-height: 1;
+}
 
-.card-one {
+.modal-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 0.6rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.card-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 0.1rem solid var(--light-gray);
+}
+
+.card-radio input:checked ~ .checkmark {
+  background-color: var(--light);
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.card-radio input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.card-radio .checkmark::after {
+  top: 0.24rem;
+  left: 0.26rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background-color: var(--moderate-cyan);
+}
+
+.card-one,
+.pledge {
   display: inherit;
   flex-direction: column;
 }

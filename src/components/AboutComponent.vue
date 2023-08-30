@@ -65,7 +65,7 @@ const openModal = () => {
         </div>
       </template>
       <template #button>
-        <MainBtnComponent>Select Reward</MainBtnComponent>
+        <MainBtnComponent @click="openModal">Select Reward</MainBtnComponent>
       </template>
     </InnerComponent>
 
