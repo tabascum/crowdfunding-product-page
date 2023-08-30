@@ -3,6 +3,10 @@ import AboutComponent from './AboutComponent.vue'
 import HeadToggleComponent from './HeadToggleComponent.vue'
 import NumbersComponent from './NumbersComponent.vue'
 import ModalComponent from './ModalComponent.vue'
+
+import { useModalToggle } from '../stores/modalToggle'
+
+const modalToggle = useModalToggle()
 </script>
 
 <template>
@@ -10,7 +14,9 @@ import ModalComponent from './ModalComponent.vue'
     <HeadToggleComponent />
     <NumbersComponent />
     <AboutComponent />
-    <ModalComponent />
+    <Teleport to="body">
+      <ModalComponent v-if="modalToggle.isModalOpen" />
+    </Teleport>
   </section>
 </template>
 

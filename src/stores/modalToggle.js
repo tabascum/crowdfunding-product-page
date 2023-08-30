@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useModalToggle = defineStore({
-  id: 'modalAcess',
+export const useModalToggle = defineStore('modalAcess', {
   state: () => ({
     isModalOpen: false
   }),

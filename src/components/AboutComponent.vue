@@ -1,6 +1,14 @@
 <script setup>
 import InnerComponent from './InnerComponent.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
+
+import { useModalToggle } from '../stores/modalToggle'
+
+const modalToggle = useModalToggle()
+
+const openModal = () => {
+  modalToggle.openModal()
+}
 </script>
 
 <template>
@@ -35,7 +43,7 @@ import MainBtnComponent from './MainBtnComponent.vue'
         </div>
       </template>
       <template #button>
-        <MainBtnComponent>Select Reward</MainBtnComponent>
+        <MainBtnComponent @click="openModal">Select Reward</MainBtnComponent>
       </template>
     </InnerComponent>
 

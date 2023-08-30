@@ -8,6 +8,7 @@
 
 <style scoped>
 .modal-content {
+  max-height: 8rem;
   width: min(768px, 100%);
   background-color: var(--white);
   padding: 1rem;
@@ -18,5 +19,7 @@
   justify-content: space-between;
   transition: 0.6s all;
   cursor: pointer;
+
+  border: 1px solid black;
 }
 </style>

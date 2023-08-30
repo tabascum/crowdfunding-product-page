@@ -2,12 +2,12 @@
 import BookmarkBtn from './BookmarkBtn.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
 
-import { useModalToggle } from '../../stores/modalToggle'
+import { useModalToggle } from '../stores/modalToggle'
 
-const modalToggle = useModalToggle()
+const openModalContent = useModalToggle()
 
 const openModal = () => {
-  modalToggle.openModal()
+  openModalContent.openModal()
 }
 </script>
 
@@ -59,53 +59,5 @@ p {
   justify-content: space-between;
   margin-block-start: 2rem;
   padding-inline: 3rem;
-}
-
-.modal-header {
-  margin-block: 0.5rem;
-}
-
-.modal-header h1 {
-  color: var(--black);
-  margin-block-end: 0.5rem;
-}
-
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  margin-block-start: 0.5rem;
-  gap: 1.5rem;
-}
-
-.modal-card {
-  gap: 0.5rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: start;
-}
-
-.modal-card div {
-  display: inline-flex;
-  gap: 0.5rem;
-}
-
-.modal-card h2 {
-  color: var(--black);
-  font-weight: var(--fw-bold);
-}
-
-.card-one {
-  display: inherit;
-  flex-direction: column;
-}
-
-.modal-stock {
-  display: inline-flex;
-  justify-self: end;
-}
-
-.no-reward {
-  display: flex;
-  flex-direction: column;
 }
 </style>
