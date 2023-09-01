@@ -40,7 +40,7 @@ const closeModal = () => {
                 <span class="checkmark"></span>
               </div>
               <div class="card-one">
-                <p>Pledge with no reward</p>
+                <h2>Pledge with no reward</h2>
                 <p>
                   Choose to support us without a reward if you simply believe in our project. As a
                   backer, you will be signed up to receive product updates via email.
@@ -56,9 +56,12 @@ const closeModal = () => {
               </div>
               <div class="card-one">
                 <div class="pledge-header">
-                  <p>Bamboo Stand</p>
-                  <p>Pledge $25 or more</p>
-                  <span> 101 left </span>
+                  <h2>Bamboo Stand</h2>
+                  <p class="pledge-value">Pledge $25 or more</p>
+                  <span>
+                    <p>101</p>
+                    <p>left</p>
+                  </span>
                 </div>
                 <p>
                   You get an ergonomic stand made of natural bamboo. You've helped us launch our
@@ -74,7 +77,14 @@ const closeModal = () => {
                 <span class="checkmark"></span>
               </div>
               <div class="pledge">
-                <p>Black Edition Stand</p>
+                <div class="pledge-header">
+                  <h2>Black Edition Stand</h2>
+                  <p class="pledge-value">Pledge $75 or more</p>
+                  <span>
+                    <p>64</p>
+                    <p>left</p>
+                  </span>
+                </div>
                 <p>
                   You get a Black Special Edition computer stand and a personal thank you. You’ll be
                   added to our Backer member list. Shipping is included.
@@ -88,8 +98,15 @@ const closeModal = () => {
                 <input type="radio" name="" id="" />
                 <span class="checkmark"></span>
               </div>
-              <div class="pledge">
-                <p>Mahogany Special Edition</p>
+              <div class="pledge disabled">
+                <div class="pledge-header">
+                  <h2>Mahogany Special Edition</h2>
+                  <p class="pledge-value">Pledge $200 or more</p>
+                  <span>
+                    <p>0</p>
+                    <p>left</p>
+                  </span>
+                </div>
                 <p>
                   You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal
                   thank you. You’ll be added to our Backer member list. Shipping is included.
@@ -104,16 +121,6 @@ const closeModal = () => {
 </template>
 
 <style scoped>
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-  transform: scale(1.1);
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: all 0.25s ease;
-}
 .modal-bg {
   position: fixed;
   top: 0;
@@ -159,21 +166,6 @@ const closeModal = () => {
   align-self: flex-end;
 }
 
-.modal-card {
-  display: flex;
-  justify-content: center;
-}
-
-.modal-card div {
-  display: inline-flex;
-  gap: 0.5rem;
-}
-
-.modal-card h2 {
-  font-size: 1.2rem;
-  color: var(--black);
-  font-weight: var(--fw-bold);
-}
 .modal-header h1 {
   color: var(--black);
   font-weight: var(--fw-bolder);
@@ -185,6 +177,33 @@ const closeModal = () => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.modal-card {
+  display: flex;
+  width: 100%;
+}
+
+.modal-card div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.modal-card h2 {
+  font-size: 1.1rem;
+  color: var(--black);
+  font-weight: var(--fw-bolder);
+  transition: 0.3s all;
+}
+
+.modal-card h2:hover {
+  color: var(--moderate-cyan);
+}
+
+.modal-card p {
+  font-size: 0.9rem;
 }
 
 .card-radio {
@@ -212,8 +231,8 @@ const closeModal = () => {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 1.4rem;
+  width: 1.4rem;
   border-radius: 50%;
   border: 0.1rem solid var(--light-gray);
 }
@@ -234,26 +253,49 @@ const closeModal = () => {
 
 .card-radio .checkmark::after {
   top: 0.24rem;
-  left: 0.26rem;
-  width: 0.9rem;
-  height: 0.9rem;
+  left: 0.3rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 50%;
   background-color: var(--moderate-cyan);
 }
 
 .card-one,
 .pledge {
-  display: inherit;
-  flex-direction: column;
-}
-
-.modal-stock {
-  display: inline-flex;
-  justify-self: end;
-}
-
-.no-reward {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.pledge-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  font-weight: var(--fw-bolder);
+  color: var(--black);
+  width: 100%;
+}
+
+.pledge-header .pledge-value {
+  display: flex;
+  justify-content: center;
+  font-weight: var(--fw-bolder);
+  color: var(--moderate-cyan);
+}
+
+.pledge-header span {
+  align-self: flex-end;
+  justify-content: center;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.pledge-header span p:first-of-type {
+  font-size: 1.2rem;
+  font-weight: var(--fw-bolder);
+}
+
+.disabled {
+  opacity: 0.5;
 }
 </style>
