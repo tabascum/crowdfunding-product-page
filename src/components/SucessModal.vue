@@ -1,23 +1,21 @@
 <script setup>
-import { useModalToggle } from '../stores/modalToggle'
-const modalToggle = useModalToggle()
-
-const closeModalSucess = () => {
-  modalToggle.closeModalSucess()
-}
+import MainBtnComponent from './MainBtnComponent.vue'
 </script>
 
 <template>
-  <Transition name="modalSucess">
-    <div class="modal-sucess-bg">
-      <div class="modal-sucess-content">
-        <div>
-          This is a new modal
-          <button @click="closeModalSucess()"></button>
-        </div>
-      </div>
+  <div class="modal-sucess-bg">
+    <div class="modal-sucess-content">
+      <picture>
+        <img src="./icons/icon-check.svg" alt="" />
+      </picture>
+      <p class="modal-header">Thanks for your support!</p>
+      <p>
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
+        You will get an email once our campaign is completed.
+      </p>
+      <MainBtnComponent class="sucess-close-btn">Got it!</MainBtnComponent>
     </div>
-  </Transition>
+  </div>
 </template>
 
 <style scoped>
@@ -35,16 +33,29 @@ const closeModalSucess = () => {
 
 .modal-sucess-content {
   height: 100%;
-  width: min(768px, 100%);
+  width: min(100%, 33vw);
   background-color: var(--white);
   color: var(--dark-gray);
-  padding: 2rem 3rem;
+  padding: 3rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  justify-content: space-between;
   gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.modal-header {
+  font-weight: var(--bolder);
+  color: var(--dark-gray);
+}
+
+.sucess-close-btn {
+  width: 7rem;
+  height: 3rem;
+  margin-block-start: 1rem;
+  font-size: 0.9rem;
 }
 </style>

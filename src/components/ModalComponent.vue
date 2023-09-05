@@ -7,6 +7,11 @@ const modalToggle = useModalToggle()
 const closeModal = () => {
   modalToggle.closeModal()
 }
+
+import { ref } from 'vue'
+import SucessModal from './SucessModal.vue'
+
+const showChildModal = ref(false)
 </script>
 
 <template>
@@ -44,7 +49,16 @@ const closeModal = () => {
                 backer, you will be signed up to receive product updates via email.
               </p>
             </div>
-            <hr />
+
+            <div class="card-footer">
+              <p for="text">Enter your pledge</p>
+              <div>
+                <input type="text" name="text" id="" value="$0" />
+                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
+                  >Continue</MainBtnComponent
+                >
+              </div>
+            </div>
           </div>
 
           <div class="modal-card">
@@ -66,7 +80,9 @@ const closeModal = () => {
               <p for="text">Enter your pledge</p>
               <div>
                 <input type="text" name="text" id="" value="$0" />
-                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
+                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
+                  >Continue</MainBtnComponent
+                >
               </div>
             </div>
           </div>
@@ -113,6 +129,7 @@ const closeModal = () => {
       </div>
     </div>
   </Transition>
+  <SucessModal v-if="showChildModal" @close="showChildModal = false" />
 </template>
 
 <style scoped>
@@ -130,7 +147,7 @@ const closeModal = () => {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100%;
+  height: 200vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;

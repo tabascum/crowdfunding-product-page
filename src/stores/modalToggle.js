@@ -14,3 +14,18 @@ export const useModalToggle = defineStore('modalAcess', {
     }
   }
 })
+
+export const useChildModal = defineStore('childModal', {
+  state: () => ({
+    isSucessModalOpen: false
+  }),
+  actions: {
+    openSucessModal() {
+      this.isSucessModalOpen = true
+    },
+
+    closeSucessModal() {
+      this.isSucessModalOpen = false
+    }
+  }
+})
