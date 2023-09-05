@@ -9,7 +9,14 @@
         <li>Discover</li>
         <li>Get Started</li>
       </ul>
-      <img src="../components/icons/icon-hamburger.svg" alt="" hidden />
+      <img src="../components/icons/icon-hamburger.svg" alt="hamburguer icon" hidden />
+      <span class="" hidden>
+        <ul>
+          <li>About</li>
+          <li>Discover</li>
+          <li>Get Started</li>
+        </ul>
+      </span>
     </nav>
   </header>
 </template>

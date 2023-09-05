@@ -95,18 +95,19 @@ const openModal = () => {
 
 <style scoped>
 .about-container {
-  height: 100%;
+  height: 150vh;
   position: absolute;
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
-  padding: 4rem 3rem;
+  padding: 3rem;
   border-radius: 0.75rem;
   top: 54rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 2rem;
+  border: 0.1rem solid var(--light-gray);
 }
 
 .about-container h1 {
@@ -116,7 +117,7 @@ const openModal = () => {
 
 .disabled {
   opacity: 0.6;
-  cursor: initial;
+  cursor: not-allowed;
 }
 
 .disabled:hover {

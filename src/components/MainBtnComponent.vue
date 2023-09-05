@@ -20,11 +20,16 @@
   font-size: 1rem;
   font-weight: var(--fw-bolder);
   transition: 0.6s all;
-  border: none;
+  border: 0.1rem solid transparent;
+  outline: none;
 }
 
 .main-button:hover {
   cursor: pointer;
   background-color: var(--dark-cyan);
+}
+
+.main-button:focus-visible {
+  border: 0.1rem solid var(--dark-gray);
 }
 </style>

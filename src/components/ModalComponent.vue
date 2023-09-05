@@ -1,6 +1,6 @@
 <script setup>
-import ModalCardsComponent from './ModalCardsComponent.vue'
 import { useModalToggle } from '../stores/modalToggle'
+import MainBtnComponent from './MainBtnComponent.vue'
 
 const modalToggle = useModalToggle()
 
@@ -22,8 +22,7 @@ const closeModal = () => {
         >
           <path
             d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            fill="#000"
             opacity=".4"
           />
         </svg>
@@ -33,87 +32,83 @@ const closeModal = () => {
         </div>
 
         <div class="modal-content-inner">
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div class="card-radio">
-                <input type="radio" name="" id="" />
-                <span class="checkmark"></span>
-              </div>
-              <div class="card-one">
-                <h2>Pledge with no reward</h2>
-                <p>
-                  Choose to support us without a reward if you simply believe in our project. As a
-                  backer, you will be signed up to receive product updates via email.
-                </p>
+          <div class="modal-card">
+            <div class="card-radio">
+              <input type="radio" name="text" id="" />
+              <span class="checkmark"></span>
+              <h2>Pledge with no reward</h2>
+            </div>
+            <div class="card-one">
+              <p>
+                Choose to support us without a reward if you simply believe in our project. As a
+                backer, you will be signed up to receive product updates via email.
+              </p>
+            </div>
+            <hr />
+          </div>
+
+          <div class="modal-card">
+            <div class="card-radio">
+              <input type="radio" name="text" id="" />
+              <span class="checkmark"></span>
+              <h2>Bamboo Stand</h2>
+              <p class="pledge-value">Pledge $25 or more</p>
+              <p class="value">101 left</p>
+            </div>
+            <div class="pledge">
+              <p>
+                You get an ergonomic stand made of natural bamboo. You've helped us launch our
+                promotional campaign, and you’ll be added to a special Backer member list.
+              </p>
+            </div>
+
+            <div class="card-footer">
+              <p for="text">Enter your pledge</p>
+              <div>
+                <input type="text" name="text" id="" value="$0" />
+                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
               </div>
             </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card selected">
-              <div class="card-radio">
-                <input type="radio" checked="checked" name="" id="" />
-                <span class="checkmark"></span>
-              </div>
-              <div class="card-one">
-                <div class="pledge-header">
-                  <h2>Bamboo Stand</h2>
-                  <p class="pledge-value">Pledge $25 or more</p>
-                  <span>
-                    <p>101</p>
-                    <p>left</p>
-                  </span>
-                </div>
-                <p>
-                  You get an ergonomic stand made of natural bamboo. You've helped us launch our
-                  promotional campaign, and you’ll be added to a special Backer member list.
-                </p>
+          </div>
+
+          <div class="modal-card">
+            <div class="card-radio">
+              <input type="radio" name="text" id="" />
+              <span class="checkmark"></span>
+              <h2>Black Edition Stand</h2>
+              <p class="pledge-value">Pledge $75 or more</p>
+              <p>64 left</p>
+            </div>
+            <div class="pledge">
+              <p>
+                You get a Black Special Edition computer stand and a personal thank you. You’ll be
+                added to our Backer member list. Shipping is included.
+              </p>
+            </div>
+
+            <div class="card-footer">
+              <p for="text">Enter your pledge</p>
+              <div>
+                <input type="text" name="text" id="" value="$0" />
+                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
               </div>
             </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div class="card-radio">
-                <input type="radio" name="" id="" />
-                <span class="checkmark"></span>
-              </div>
-              <div class="pledge">
-                <div class="pledge-header">
-                  <h2>Black Edition Stand</h2>
-                  <p class="pledge-value">Pledge $75 or more</p>
-                  <span>
-                    <p>64</p>
-                    <p>left</p>
-                  </span>
-                </div>
-                <p>
-                  You get a Black Special Edition computer stand and a personal thank you. You’ll be
-                  added to our Backer member list. Shipping is included.
-                </p>
-              </div>
+          </div>
+          <div class="modal-card disabled">
+            <div class="card-radio">
+              <input type="radio" name="text" id="" />
+              <span class="checkmark"></span>
+              <h2>Mahogany Special Edition</h2>
+              <p class="pledge-value">Pledge $200 or more</p>
+              <p><strong>0</strong> left</p>
             </div>
-          </ModalCardsComponent>
-          <ModalCardsComponent>
-            <div class="modal-card">
-              <div class="card-radio">
-                <input type="radio" name="" id="" />
-                <span class="checkmark"></span>
-              </div>
-              <div class="pledge disabled">
-                <div class="pledge-header">
-                  <h2>Mahogany Special Edition</h2>
-                  <p class="pledge-value">Pledge $200 or more</p>
-                  <span>
-                    <p>0</p>
-                    <p>left</p>
-                  </span>
-                </div>
-                <p>
-                  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal
-                  thank you. You’ll be added to our Backer member list. Shipping is included.
-                </p>
-              </div>
+            <div class="pledge">
+              <p>
+                You get an ergonomic stand made of natural bamboo. You've helped us launch our
+                promotional campaign, and you’ll be added to a special Backer member list.
+              </p>
             </div>
-          </ModalCardsComponent>
+          </div>
         </div>
       </div>
     </div>
@@ -121,12 +116,21 @@ const closeModal = () => {
 </template>
 
 <style scoped>
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.4s linear;
+}
+
+.modal-enter,
+.modal-leave-to {
+  opacity: 0;
+}
 .modal-bg {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -134,7 +138,6 @@ const closeModal = () => {
 }
 
 .modal-content {
-  height: 95vh;
   width: min(768px, 100%);
   background-color: var(--white);
   color: var(--dark-gray);
@@ -166,11 +169,15 @@ const closeModal = () => {
   align-self: flex-end;
 }
 
+.modal-header {
+  margin-block-end: 1rem;
+}
+
 .modal-header h1 {
   color: var(--black);
   font-weight: var(--fw-bolder);
   font-size: 1.5rem;
-  line-height: 1;
+  margin-block-end: 0.8rem;
 }
 
 .modal-content-inner {
@@ -181,36 +188,39 @@ const closeModal = () => {
 
 .modal-card {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 0.1rem solid var(--light-gray);
 }
 
 .modal-card div {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
   gap: 0.5rem;
 }
 
-.modal-card h2 {
-  font-size: 1.1rem;
+.card-radio h2 {
+  font-size: 1.05rem;
   color: var(--black);
   font-weight: var(--fw-bolder);
   transition: 0.3s all;
 }
 
-.modal-card h2:hover {
+.card-radio h2:hover:not(.disabled .card-radio h2) {
   color: var(--moderate-cyan);
 }
 
 .modal-card p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .card-radio {
-  display: block;
+  display: flex;
   position: relative;
+  align-items: center;
   padding-left: 35px;
-  margin-bottom: 12px;
   cursor: pointer;
   font-size: 0.6rem;
   -webkit-user-select: none;
@@ -219,7 +229,7 @@ const closeModal = () => {
   user-select: none;
 }
 
-.card-radio input {
+.card-radio input[type='radio'] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -231,13 +241,13 @@ const closeModal = () => {
   position: absolute;
   top: 0;
   left: 0;
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 1.3rem;
+  width: 1.3rem;
   border-radius: 50%;
   border: 0.1rem solid var(--light-gray);
 }
 
-.card-radio input:checked ~ .checkmark {
+.card-radio input[type='radio']:checked ~ .checkmark {
   background-color: var(--light);
 }
 
@@ -247,7 +257,7 @@ const closeModal = () => {
   display: none;
 }
 
-.card-radio input:checked ~ .checkmark::after {
+.card-radio input[type='radio']:checked ~ .checkmark::after {
   display: block;
 }
 
@@ -260,42 +270,52 @@ const closeModal = () => {
   background-color: var(--moderate-cyan);
 }
 
+.card-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: 1.5rem;
+  padding-block-start: 2rem;
+  border-block-start: 0.1rem solid var(--light-gray);
+}
+
 .card-one,
 .pledge {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-inline-start: 2.1rem;
 }
 
-.pledge-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: start;
-  font-weight: var(--fw-bolder);
-  color: var(--black);
-  width: 100%;
-}
-
-.pledge-header .pledge-value {
-  display: flex;
-  justify-content: center;
-  font-weight: var(--fw-bolder);
+.pledge-value {
   color: var(--moderate-cyan);
 }
 
-.pledge-header span {
-  align-self: flex-end;
-  justify-content: center;
-  display: flex;
-  gap: 0.2rem;
+.btn-continue {
+  width: 8rem;
+  height: 2.5rem;
 }
 
-.pledge-header span p:first-of-type {
-  font-size: 1.2rem;
-  font-weight: var(--fw-bolder);
+input[type='text'] {
+  height: 2.5rem;
+  width: 5.5rem;
+}
+
+input[type='text'] {
+  border-radius: 5rem;
+  border: 0.1rem solid var(--light-gray);
+  padding-inline-start: 3rem;
+  font-size: 0.9rem;
+}
+
+input[type='text']:focus-visible {
+  border: 0.1rem solid var(--moderate-cyan);
+  outline: none;
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>
