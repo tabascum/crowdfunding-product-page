@@ -43,7 +43,7 @@ const showChildModal = ref(false)
               <span class="checkmark"></span>
               <h2>Pledge with no reward</h2>
             </div>
-            <div class="card-one">
+            <div class="pledge">
               <p>
                 Choose to support us without a reward if you simply believe in our project. As a
                 backer, you will be signed up to receive product updates via email.
@@ -79,7 +79,7 @@ const showChildModal = ref(false)
             <div class="card-footer">
               <p for="text">Enter your pledge</p>
               <div>
-                <input type="text" name="text" id="" value="$0" />
+                <input type="text" name="text" id="" value="$25" />
                 <MainBtnComponent @click="showChildModal = true" class="btn-continue"
                   >Continue</MainBtnComponent
                 >
@@ -105,8 +105,10 @@ const showChildModal = ref(false)
             <div class="card-footer">
               <p for="text">Enter your pledge</p>
               <div>
-                <input type="text" name="text" id="" value="$0" />
-                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
+                <input type="text" name="text" id="" value="$75" />
+                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
+                  >Continue</MainBtnComponent
+                >
               </div>
             </div>
           </div>
@@ -317,13 +319,12 @@ const showChildModal = ref(false)
 input[type='text'] {
   height: 2.5rem;
   width: 5.5rem;
-}
-
-input[type='text'] {
   border-radius: 5rem;
   border: 0.1rem solid var(--light-gray);
-  padding-inline-start: 3rem;
+  padding-inline-start: 2.75rem;
   font-size: 0.9rem;
+  color: var(--dark-gray);
+  font-weight: var(--fw-bolder);
 }
 
 input[type='text']:focus-visible {

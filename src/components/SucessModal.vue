@@ -1,5 +1,12 @@
 <script setup>
 import MainBtnComponent from './MainBtnComponent.vue'
+import { useModalToggle } from '../stores/modalToggle'
+
+const sucessModal = useModalToggle()
+
+const closeSucessModal = () => {
+  sucessModal.closeModal()
+}
 </script>
 
 <template>
@@ -13,7 +20,9 @@ import MainBtnComponent from './MainBtnComponent.vue'
         Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
         You will get an email once our campaign is completed.
       </p>
-      <MainBtnComponent class="sucess-close-btn">Got it!</MainBtnComponent>
+      <MainBtnComponent @click="closeSucessModal()" class="sucess-close-btn"
+        >Got it!</MainBtnComponent
+      >
     </div>
   </div>
 </template>
