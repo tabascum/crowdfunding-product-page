@@ -15,7 +15,7 @@ const closeSucessModal = () => {
       <picture>
         <img src="./icons/icon-check.svg" alt="" />
       </picture>
-      <p class="modal-header">Thanks for your support!</p>
+      <h2 class="modal-header">Thanks for your support!</h2>
       <p>
         Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
         You will get an email once our campaign is completed.
@@ -57,8 +57,8 @@ const closeSucessModal = () => {
 }
 
 .modal-header {
-  font-weight: var(--bolder);
-  color: var(--dark-gray);
+  font-weight: var(--fw-bolder);
+  color: var(--black);
 }
 
 .sucess-close-btn {

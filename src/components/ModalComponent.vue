@@ -131,7 +131,7 @@ const showChildModal = ref(false)
       </div>
     </div>
   </Transition>
-  <SucessModal v-if="showChildModal" @close="showChildModal = false" />
+  <SucessModal v-if="showChildModal" />
 </template>
 
 <style scoped>
