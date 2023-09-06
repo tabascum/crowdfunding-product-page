@@ -3,6 +3,7 @@ import AboutComponent from './AboutComponent.vue'
 import HeadToggleComponent from './HeadToggleComponent.vue'
 import NumbersComponent from './NumbersComponent.vue'
 import ModalComponent from './ModalComponent.vue'
+import SucessModal from './SucessModal.vue'
 
 import { useModalToggle } from '../stores/modalToggle'
 
@@ -15,7 +16,10 @@ const modalToggle = useModalToggle()
     <NumbersComponent />
     <AboutComponent />
     <Teleport to="body">
-      <ModalComponent v-if="modalToggle.isModalOpen" />
+      <ModalComponent v-if="modalToggle.isModalOpen" @close="modalToggle.closeModal" />
+    </Teleport>
+    <Teleport to="body">
+      <SucessModal v-if="modalToggle.isSucessModalOpen" @close="modalToggle.closeSucessModal" />
     </Teleport>
   </section>
 </template>

@@ -2,46 +2,45 @@
 import MainBtnComponent from './MainBtnComponent.vue'
 import { useModalToggle } from '../stores/modalToggle'
 
-const sucessModal = useModalToggle()
-
-const closeSucessModal = () => {
-  sucessModal.closeModal()
-}
+const modalToggle = useModalToggle()
 </script>
 
 <template>
-  <div class="modal-sucess-bg">
-    <div class="modal-sucess-content">
-      <picture>
-        <img src="./icons/icon-check.svg" alt="" />
-      </picture>
-      <h2 class="modal-header">Thanks for your support!</h2>
-      <p>
-        Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
-        You will get an email once our campaign is completed.
-      </p>
-      <MainBtnComponent @click="closeSucessModal()" class="sucess-close-btn"
-        >Got it!</MainBtnComponent
-      >
+  <Transition>
+    <div class="modal-sucess-bg">
+      <div class="modal-sucess-content">
+        <picture>
+          <img src="./icons/icon-check.svg" alt="" />
+        </picture>
+        <h2 class="modal-header">Thanks for your support!</h2>
+        <p>
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
+          worldwide. You will get an email once our campaign is completed.
+        </p>
+        <MainBtnComponent @click="modalToggle.closeSucessModal()" class="sucess-close-btn"
+          >Got it!</MainBtnComponent
+        >
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped>
 .modal-sucess-bg {
-  position: absolute;
+  /*   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 100%; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  inset: 0;
 }
 
 .modal-sucess-content {
-  height: 100%;
   width: min(100%, 33vw);
   background-color: var(--white);
   color: var(--dark-gray);

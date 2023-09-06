@@ -1,17 +1,9 @@
 <script setup>
-import { useModalToggle } from '../stores/modalToggle'
 import MainBtnComponent from './MainBtnComponent.vue'
 
+import { useModalToggle } from '../stores/modalToggle'
+
 const modalToggle = useModalToggle()
-
-const closeModal = () => {
-  modalToggle.closeModal()
-}
-
-import { ref } from 'vue'
-import SucessModal from './SucessModal.vue'
-
-const showChildModal = ref(false)
 </script>
 
 <template>
@@ -19,7 +11,7 @@ const showChildModal = ref(false)
     <div class="modal-bg">
       <div class="modal-content" ref="modal">
         <svg
-          @click="closeModal()"
+          @click="modalToggle.closeModal()"
           class="close-btn"
           width="15"
           height="15"
@@ -54,7 +46,7 @@ const showChildModal = ref(false)
               <p for="text">Enter your pledge</p>
               <div>
                 <input type="text" name="text" id="" value="$0" />
-                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
+                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
                   >Continue</MainBtnComponent
                 >
               </div>
@@ -80,9 +72,7 @@ const showChildModal = ref(false)
               <p for="text">Enter your pledge</p>
               <div>
                 <input type="text" name="text" id="" value="$25" />
-                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
-                  >Continue</MainBtnComponent
-                >
+                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
               </div>
             </div>
           </div>
@@ -106,9 +96,7 @@ const showChildModal = ref(false)
               <p for="text">Enter your pledge</p>
               <div>
                 <input type="text" name="text" id="" value="$75" />
-                <MainBtnComponent @click="showChildModal = true" class="btn-continue"
-                  >Continue</MainBtnComponent
-                >
+                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
               </div>
             </div>
           </div>
@@ -131,13 +119,12 @@ const showChildModal = ref(false)
       </div>
     </div>
   </Transition>
-  <SucessModal v-if="showChildModal" />
 </template>
 
 <style scoped>
 .modal-enter-active,
 .modal-leave-active {
-  transition: opacity 0.4s linear;
+  transition: opacity 0.6s linear;
 }
 
 .modal-enter,
@@ -145,15 +132,11 @@ const showChildModal = ref(false)
   opacity: 0;
 }
 .modal-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200vh;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -164,9 +147,6 @@ const showChildModal = ref(false)
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   gap: 0.5rem;
 }
 
@@ -175,17 +155,18 @@ const showChildModal = ref(false)
   background-color: transparent;
 }
 ::-webkit-scrollbar {
-  width: 3px !important;
-  background-color: transparent;
+  width: 0.1rem !important;
+  background-color: var(--light);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: var(--moderate-cyan);
 }
 
 .close-btn {
   color: var(--black);
   cursor: pointer;
   align-self: flex-end;
+  position: fixed;
 }
 
 .modal-header {
@@ -199,9 +180,14 @@ const showChildModal = ref(false)
   margin-block-end: 0.8rem;
 }
 
+.value {
+  align-self: flex-end;
+}
+
 .modal-content-inner {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   gap: 1rem;
 }
 
