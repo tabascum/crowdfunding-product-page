@@ -27,11 +27,6 @@ const modalToggle = useModalToggle()
 
 <style scoped>
 .modal-sucess-bg {
-  /*   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100%; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;

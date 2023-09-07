@@ -10,7 +10,7 @@
         <li>Get Started</li>
       </ul>
       <img src="../components/icons/icon-hamburger.svg" alt="hamburguer icon" hidden />
-      <span class="" hidden>
+      <span class="responsive-navbar" hidden>
         <ul>
           <li>About</li>
           <li>Discover</li>

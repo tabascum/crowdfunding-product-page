@@ -1,7 +1,30 @@
 <script setup>
 import MainBtnComponent from './MainBtnComponent.vue'
-
 import { useModalToggle } from '../stores/modalToggle'
+
+import { ref } from 'vue'
+import { useTotalStore } from '../stores/totalValue'
+
+const inputValueNoReward = ref()
+const inputValuePledge25 = ref()
+const inputValuePledge75 = ref()
+
+const totalStore = useTotalStore()
+
+const updateTotal = () => {
+  const value = parseInt(inputValueNoReward.value) || 0
+  totalStore.addToTotal(value)
+}
+
+const updateTotal25 = () => {
+  const value = parseInt(inputValuePledge25.value) || 0
+  totalStore.addToTotal(value)
+}
+
+const updateTotal75 = () => {
+  const value = parseInt(inputValuePledge75.value) || 0
+  totalStore.addToTotal(value)
+}
 
 const modalToggle = useModalToggle()
 </script>
@@ -33,19 +56,30 @@ const modalToggle = useModalToggle()
             <div class="card-radio">
               <input type="radio" name="text" id="" />
               <span class="checkmark"></span>
-              <h2>Pledge with no reward</h2>
             </div>
             <div class="pledge">
-              <p>
-                Choose to support us without a reward if you simply believe in our project. As a
-                backer, you will be signed up to receive product updates via email.
-              </p>
+              <div class="pledge-content">
+                <div class="pledge-header">
+                  <h2>Pledge with no reward</h2>
+                </div>
+                <p>
+                  Choose to support us without a reward if you simply believe in our project. As a
+                  backer, you will be signed up to receive product updates via email.
+                </p>
+              </div>
             </div>
 
             <div class="card-footer">
               <p for="text">Enter your pledge</p>
               <div>
-                <input type="text" name="text" id="" value="$0" />
+                <input
+                  type="text"
+                  name="noReward"
+                  id="noReward"
+                  v-model="inputValueNoReward"
+                  @input="updateTotal"
+                  autocomplete="off"
+                />
                 <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
                   >Continue</MainBtnComponent
                 >
@@ -57,22 +91,36 @@ const modalToggle = useModalToggle()
             <div class="card-radio">
               <input type="radio" name="text" id="" />
               <span class="checkmark"></span>
-              <h2>Bamboo Stand</h2>
-              <p class="pledge-value">Pledge $25 or more</p>
-              <p class="value">101 left</p>
             </div>
             <div class="pledge">
-              <p>
-                You get an ergonomic stand made of natural bamboo. You've helped us launch our
-                promotional campaign, and you’ll be added to a special Backer member list.
-              </p>
+              <div class="pledge-content">
+                <div class="pledge-header">
+                  <h2>Bamboo Stand</h2>
+                  <p class="pledge-value">Pledge $25 or more</p>
+                  <p class="value"><strong>101</strong> left</p>
+                </div>
+
+                <p>
+                  You get an ergonomic stand made of natural bamboo. You've helped us launch our
+                  promotional campaign, and you’ll be added to a special Backer member list.
+                </p>
+              </div>
             </div>
 
             <div class="card-footer">
               <p for="text">Enter your pledge</p>
               <div>
-                <input type="text" name="text" id="" value="$25" />
-                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
+                <input
+                  type="text"
+                  name="pledge25"
+                  id="pledge25"
+                  v-model="inputValuePledge25"
+                  @input="updateTotal25"
+                  autocomplete="off"
+                />
+                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
+                  >Continue</MainBtnComponent
+                >
               </div>
             </div>
           </div>
@@ -81,22 +129,36 @@ const modalToggle = useModalToggle()
             <div class="card-radio">
               <input type="radio" name="text" id="" />
               <span class="checkmark"></span>
-              <h2>Black Edition Stand</h2>
-              <p class="pledge-value">Pledge $75 or more</p>
-              <p>64 left</p>
             </div>
             <div class="pledge">
-              <p>
-                You get a Black Special Edition computer stand and a personal thank you. You’ll be
-                added to our Backer member list. Shipping is included.
-              </p>
+              <div class="pledge-content">
+                <div class="pledge-header">
+                  <h2>Black Edition Stand</h2>
+                  <p class="pledge-value">Pledge $75 or more</p>
+                  <p class="value"><strong>64</strong> left</p>
+                </div>
+
+                <p>
+                  You get a Black Special Edition computer stand and a personal thank you. You’ll be
+                  added to our Backer member list. Shipping is included.
+                </p>
+              </div>
             </div>
 
             <div class="card-footer">
               <p for="text">Enter your pledge</p>
               <div>
-                <input type="text" name="text" id="" value="$75" />
-                <MainBtnComponent class="btn-continue">Continue</MainBtnComponent>
+                <input
+                  type="text"
+                  name="pledge75"
+                  id="pledge75"
+                  v-model="inputValuePledge75"
+                  @input="updateTotal75"
+                  autocomplete="off"
+                />
+                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
+                  >Continue</MainBtnComponent
+                >
               </div>
             </div>
           </div>
@@ -104,15 +166,20 @@ const modalToggle = useModalToggle()
             <div class="card-radio">
               <input type="radio" name="text" id="" />
               <span class="checkmark"></span>
-              <h2>Mahogany Special Edition</h2>
-              <p class="pledge-value">Pledge $200 or more</p>
-              <p><strong>0</strong> left</p>
             </div>
             <div class="pledge">
-              <p>
-                You get an ergonomic stand made of natural bamboo. You've helped us launch our
-                promotional campaign, and you’ll be added to a special Backer member list.
-              </p>
+              <div class="pledge-content">
+                <div class="pledge-header">
+                  <h2>Mahogany Special Edition</h2>
+                  <p class="pledge-value">Pledge $200 or more</p>
+                  <p class="value"><strong>0</strong> left</p>
+                </div>
+
+                <p>
+                  You get an ergonomic stand made of natural bamboo. You've helped us launch our
+                  promotional campaign, and you’ll be added to a special Backer member list.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -122,15 +189,6 @@ const modalToggle = useModalToggle()
 </template>
 
 <style scoped>
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.6s linear;
-}
-
-.modal-enter,
-.modal-leave-to {
-  opacity: 0;
-}
 .modal-bg {
   display: flex;
   justify-content: center;
@@ -180,10 +238,6 @@ const modalToggle = useModalToggle()
   margin-block-end: 0.8rem;
 }
 
-.value {
-  align-self: flex-end;
-}
-
 .modal-content-inner {
   display: flex;
   flex-direction: column;
@@ -206,40 +260,16 @@ const modalToggle = useModalToggle()
   gap: 0.5rem;
 }
 
-.card-radio h2 {
-  font-size: 1.05rem;
-  color: var(--black);
-  font-weight: var(--fw-bolder);
-  transition: 0.3s all;
-}
-
-.card-radio h2:hover:not(.disabled .card-radio h2) {
-  color: var(--moderate-cyan);
-}
-
-.modal-card p {
-  font-size: 0.95rem;
-}
-
 .card-radio {
   display: flex;
   position: relative;
   align-items: center;
-  padding-left: 35px;
   cursor: pointer;
   font-size: 0.6rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.card-radio input[type='radio'] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
 }
 
 .checkmark {
@@ -251,22 +281,29 @@ const modalToggle = useModalToggle()
   border-radius: 50%;
   border: 0.1rem solid var(--light-gray);
 }
-
-.card-radio input[type='radio']:checked ~ .checkmark {
-  background-color: var(--light);
-}
-
 .checkmark::after {
   content: '';
   position: absolute;
   display: none;
 }
 
-.card-radio input[type='radio']:checked ~ .checkmark::after {
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+input[type='radio']:checked ~ .checkmark {
+  background-color: var(--moderate-cyan);
+}
+
+input[type='radio']:checked ~ .checkmark::after {
   display: block;
 }
 
-.card-radio .checkmark::after {
+input[type='radio'].checkmark::after {
   top: 0.24rem;
   left: 0.3rem;
   width: 0.7rem;
@@ -274,7 +311,6 @@ const modalToggle = useModalToggle()
   border-radius: 50%;
   background-color: var(--moderate-cyan);
 }
-
 .card-footer {
   width: 100%;
   display: flex;
@@ -285,12 +321,36 @@ const modalToggle = useModalToggle()
   border-block-start: 0.1rem solid var(--light-gray);
 }
 
-.card-one,
 .pledge {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-inline-start: 2.1rem;
+}
+
+.pledge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pledge-header {
+  align-items: center;
+  line-height: 1;
+}
+
+.pledge-header h2 {
+  font-size: 1.05rem;
+  color: var(--black);
+  font-weight: var(--fw-bolder);
+  transition: 0.3s all;
+}
+
+.pledge-header h2:hover:not(.disabled .pledge-header h2) {
+  color: var(--moderate-cyan);
+}
+
+.pledge-content p {
+  font-size: 0.95rem;
 }
 
 .pledge-value {
