@@ -1,22 +1,18 @@
 <script setup>
-import { useTotalStore } from '../stores/totalValue'
+import { useTotalStore } from '../stores/TotalStore'
 
 const totalStore = useTotalStore()
-
-function formatNumberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
 </script>
 
 <template>
   <section class="numbers-container">
     <article class="backers">
       <div>
-        <h1>${{ formatNumberWithCommas(totalStore.totalValue) }}</h1>
+        <h1>${{ totalStore.formattedTotalValue }}</h1>
         <p>of $100,000 backed</p>
       </div>
       <div>
-        <h1>{{ formatNumberWithCommas(totalStore.totalBackers) }}</h1>
+        <h1>{{ totalStore.formattedTotalBackers }}</h1>
         <p>total backers</p>
       </div>
       <div>

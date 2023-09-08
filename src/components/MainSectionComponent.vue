@@ -5,7 +5,7 @@ import NumbersComponent from './NumbersComponent.vue'
 import ModalComponent from './ModalComponent.vue'
 import SucessModal from './SucessModal.vue'
 
-import { useModalToggle } from '../stores/modalToggle'
+import { useModalToggle } from '../stores/ModalToggle'
 
 const modalToggle = useModalToggle()
 </script>

@@ -2,7 +2,7 @@
 import BookmarkBtn from './BookmarkBtn.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
 
-import { useModalToggle } from '../stores/modalToggle'
+import { useModalToggle } from '../stores/ModalToggle'
 
 const openModalContent = useModalToggle()
 

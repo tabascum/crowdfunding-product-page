@@ -1,6 +1,6 @@
 <script setup>
 import MainBtnComponent from './MainBtnComponent.vue'
-import { useModalToggle } from '../stores/modalToggle'
+import { useModalToggle } from '../stores/ModalToggle'
 
 const modalToggle = useModalToggle()
 </script>

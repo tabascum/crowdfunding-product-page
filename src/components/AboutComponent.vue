@@ -2,9 +2,11 @@
 import InnerComponent from './InnerComponent.vue'
 import MainBtnComponent from './MainBtnComponent.vue'
 
-import { useModalToggle } from '../stores/modalToggle'
+import { useModalToggle } from '../stores/ModalToggle'
+import { useTotalStore } from '../stores/TotalStore'
 
 const modalToggle = useModalToggle()
+const totalStore = useTotalStore()
 
 const openModal = () => {
   modalToggle.openModal()
@@ -38,7 +40,7 @@ const openModal = () => {
       </template>
       <template #input>
         <div>
-          <h2>101</h2>
+          <h2>{{ totalStore.bambooTotal }}</h2>
           <p>left</p>
         </div>
       </template>
@@ -60,7 +62,7 @@ const openModal = () => {
       </template>
       <template #input>
         <div>
-          <h2>64</h2>
+          <h2>{{ totalStore.blackEditionTotal }}</h2>
           <p>left</p>
         </div>
       </template>

@@ -1,32 +1,33 @@
 <script setup>
 import MainBtnComponent from './MainBtnComponent.vue'
-import { useModalToggle } from '../stores/modalToggle'
+import { useModalToggle } from '../stores/ModalToggle'
 
 import { ref } from 'vue'
-import { useTotalStore } from '../stores/totalValue'
+import { useTotalStore } from '../stores/TotalStore'
 
-const inputValueNoReward = ref()
-const inputValuePledge25 = ref()
-const inputValuePledge75 = ref()
+const noRewardInputValue = ref('')
+const bambooStandInputValue = ref('')
+const blackEditionStandInputValue = ref('')
 
 const totalStore = useTotalStore()
-
-const updateTotal = () => {
-  const value = parseInt(inputValueNoReward.value) || 0
-  totalStore.addToTotal(value)
-}
-
-const updateTotal25 = () => {
-  const value = parseInt(inputValuePledge25.value) || 0
-  totalStore.addToTotal(value)
-}
-
-const updateTotal75 = () => {
-  const value = parseInt(inputValuePledge75.value) || 0
-  totalStore.addToTotal(value)
-}
-
 const modalToggle = useModalToggle()
+
+const updateTotalAndOpenModal = (section) => {
+  let inputValue = ''
+
+  if (section === 'noReward') {
+    inputValue = parseInt(noRewardInputValue.value) || 0
+  } else if (section === 'bambooStand') {
+    inputValue = parseInt(bambooStandInputValue.value) || 0
+    totalStore.decrementBambooTotal()
+  } else if (section === 'blackEditionStand') {
+    inputValue = parseInt(blackEditionStandInputValue.value) || 0
+    totalStore.decrementBlackEditionTotal()
+  }
+
+  totalStore.addToTotal(inputValue)
+  modalToggle.openSucessModal()
+}
 </script>
 
 <template>
@@ -54,7 +55,7 @@ const modalToggle = useModalToggle()
         <div class="modal-content-inner">
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="" />
+              <input type="radio" name="text" id="noReward" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -76,20 +77,20 @@ const modalToggle = useModalToggle()
                   type="text"
                   name="noReward"
                   id="noReward"
-                  v-model="inputValueNoReward"
-                  @input="updateTotal"
+                  v-model="noRewardInputValue"
                   autocomplete="off"
                 />
-                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
-                  >Continue</MainBtnComponent
-                >
+                <MainBtnComponent @click="updateTotalAndOpenModal('noReward')" class="btn-continue">
+                  Continue
+                </MainBtnComponent>
               </div>
             </div>
           </div>
 
+          <!-- Bamboo Stand Section -->
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="" />
+              <input type="radio" name="text" id="bambooStand" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -97,7 +98,9 @@ const modalToggle = useModalToggle()
                 <div class="pledge-header">
                   <h2>Bamboo Stand</h2>
                   <p class="pledge-value">Pledge $25 or more</p>
-                  <p class="value"><strong>101</strong> left</p>
+                  <p class="value">
+                    <strong>{{ totalStore.bambooTotal }}</strong> left
+                  </p>
                 </div>
 
                 <p>
@@ -112,22 +115,25 @@ const modalToggle = useModalToggle()
               <div>
                 <input
                   type="text"
-                  name="pledge25"
-                  id="pledge25"
-                  v-model="inputValuePledge25"
-                  @input="updateTotal25"
+                  name="bambooStand"
+                  id="bambooStand"
+                  v-model="bambooStandInputValue"
                   autocomplete="off"
                 />
-                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
-                  >Continue</MainBtnComponent
+                <MainBtnComponent
+                  @click="updateTotalAndOpenModal('bambooStand')"
+                  class="btn-continue"
                 >
+                  Continue
+                </MainBtnComponent>
               </div>
             </div>
           </div>
 
+          <!-- Black Edition Stand Section -->
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="" />
+              <input type="radio" name="text" id="blackEditionStand" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -135,7 +141,9 @@ const modalToggle = useModalToggle()
                 <div class="pledge-header">
                   <h2>Black Edition Stand</h2>
                   <p class="pledge-value">Pledge $75 or more</p>
-                  <p class="value"><strong>64</strong> left</p>
+                  <p class="value">
+                    <strong>{{ totalStore.blackEditionTotal }}</strong> left
+                  </p>
                 </div>
 
                 <p>
@@ -150,18 +158,21 @@ const modalToggle = useModalToggle()
               <div>
                 <input
                   type="text"
-                  name="pledge75"
-                  id="pledge75"
-                  v-model="inputValuePledge75"
-                  @input="updateTotal75"
+                  name="blackEditionStand"
+                  id="blackEditionStand"
+                  v-model="blackEditionStandInputValue"
                   autocomplete="off"
                 />
-                <MainBtnComponent @click="modalToggle.openSucessModal" class="btn-continue"
-                  >Continue</MainBtnComponent
+                <MainBtnComponent
+                  @click="updateTotalAndOpenModal('blackEditionStand')"
+                  class="btn-continue"
                 >
+                  Continue
+                </MainBtnComponent>
               </div>
             </div>
           </div>
+
           <div class="modal-card disabled">
             <div class="card-radio">
               <input type="radio" name="text" id="" />
@@ -189,6 +200,14 @@ const modalToggle = useModalToggle()
 </template>
 
 <style scoped>
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.5s;
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
 .modal-bg {
   display: flex;
   justify-content: center;
@@ -336,6 +355,7 @@ input[type='radio'].checkmark::after {
 .pledge-header {
   align-items: center;
   line-height: 1;
+  width: 100%;
 }
 
 .pledge-header h2 {
@@ -343,6 +363,7 @@ input[type='radio'].checkmark::after {
   color: var(--black);
   font-weight: var(--fw-bolder);
   transition: 0.3s all;
+  cursor: pointer;
 }
 
 .pledge-header h2:hover:not(.disabled .pledge-header h2) {
@@ -355,6 +376,16 @@ input[type='radio'].checkmark::after {
 
 .pledge-value {
   color: var(--moderate-cyan);
+}
+
+.value {
+  align-self: flex-end;
+}
+
+.value strong {
+  font-size: large;
+  font-weight: var(--fw-bolder);
+  color: var(--black);
 }
 
 .btn-continue {
