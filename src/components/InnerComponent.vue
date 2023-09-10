@@ -31,6 +31,21 @@
   cursor: pointer;
 }
 
+@media (max-width: 767px) {
+  .about-inner-card {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .inner-header,
+  .inner-button {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+}
+
 .inner-header,
 .inner-button {
   display: flex;

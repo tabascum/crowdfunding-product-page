@@ -27,9 +27,15 @@ const modalToggle = useModalToggle()
 <style scoped>
 .main {
   margin: 0 auto;
-  width: 768px;
+  width: min(768px, 100%);
   height: 100vh;
   margin-block-start: 13rem;
   background-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .main {
+    width: 100%;
+  }
 }
 </style>

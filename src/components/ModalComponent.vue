@@ -13,16 +13,20 @@ const totalStore = useTotalStore()
 const modalToggle = useModalToggle()
 
 const updateTotalAndOpenModal = (section) => {
-  let inputValue = ''
+  let inputValue = 0
 
   if (section === 'noReward') {
     inputValue = parseInt(noRewardInputValue.value) || 0
   } else if (section === 'bambooStand') {
     inputValue = parseInt(bambooStandInputValue.value) || 0
-    totalStore.decrementBambooTotal()
+    if (inputValue > 0) {
+      totalStore.decrementBambooTotal()
+    }
   } else if (section === 'blackEditionStand') {
     inputValue = parseInt(blackEditionStandInputValue.value) || 0
-    totalStore.decrementBlackEditionTotal()
+    if (inputValue > 0) {
+      totalStore.decrementBlackEditionTotal()
+    }
   }
 
   totalStore.addToTotal(inputValue)
@@ -87,7 +91,6 @@ const updateTotalAndOpenModal = (section) => {
             </div>
           </div>
 
-          <!-- Bamboo Stand Section -->
           <div class="modal-card">
             <div class="card-radio">
               <input type="radio" name="text" id="bambooStand" />
@@ -130,7 +133,6 @@ const updateTotalAndOpenModal = (section) => {
             </div>
           </div>
 
-          <!-- Black Edition Stand Section -->
           <div class="modal-card">
             <div class="card-radio">
               <input type="radio" name="text" id="blackEditionStand" />
@@ -200,14 +202,6 @@ const updateTotalAndOpenModal = (section) => {
 </template>
 
 <style scoped>
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.5s;
-}
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
 .modal-bg {
   display: flex;
   justify-content: center;
@@ -356,6 +350,7 @@ input[type='radio'].checkmark::after {
   align-items: center;
   line-height: 1;
   width: 100%;
+  cursor: pointer;
 }
 
 .pledge-header h2 {
@@ -363,7 +358,6 @@ input[type='radio'].checkmark::after {
   color: var(--black);
   font-weight: var(--fw-bolder);
   transition: 0.3s all;
-  cursor: pointer;
 }
 
 .pledge-header h2:hover:not(.disabled .pledge-header h2) {
@@ -402,9 +396,10 @@ input[type='text'] {
   font-size: 0.9rem;
   color: var(--dark-gray);
   font-weight: var(--fw-bolder);
+  cursor: pointer;
 }
 
-input[type='text']:focus-visible {
+input[type='text']:is(:focus-visible) {
   border: 0.1rem solid var(--moderate-cyan);
   outline: none;
 }

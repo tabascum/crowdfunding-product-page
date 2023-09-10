@@ -1,16 +1,25 @@
-<scrip setup></scrip>
+<scrip setup>
+
+
+
+</scrip>
 
 <template>
   <header class="navbar-container">
     <nav>
-      <img src="../assets/logo.svg" alt="" srcset="" />
-      <ul>
+      <img
+        class="page-logo"
+        src="../assets/logo.svg"
+        alt="crowdfund logo"
+        srcset="../assets/logo.svg"
+      />
+      <ul class="desktop-navbar">
         <li>About</li>
         <li>Discover</li>
         <li>Get Started</li>
       </ul>
-      <img src="../components/icons/icon-hamburger.svg" alt="hamburguer icon" hidden />
-      <span class="responsive-navbar" hidden>
+      <img class="hamburguer-menu" src="./icons/icon-hamburger.svg" />
+      <span class="responsive-navbar">
         <ul>
           <li>About</li>
           <li>Discover</li>
@@ -45,5 +54,48 @@ ul {
 li {
   font-weight: var(--fw-normal);
   cursor: pointer;
+}
+
+.page-logo {
+  height: auto;
+  width: 8rem;
+}
+
+.hamburguer-menu,
+.responsive-navbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .navbar-container {
+    position: relative;
+  }
+  .desktop-navbar {
+    display: none;
+  }
+
+  .hamburguer-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .responsive-navbar {
+    top: 7rem;
+    width: 100%;
+    position: absolute;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    display: block;
+  }
+
+  ul li {
+    padding: 1rem;
+    color: var(--black);
+    font-weight: var(--fw-bold);
+  }
+
+  ul li:not(:last-of-type) {
+    border-block-end: 0.1rem solid var(--light-gray);
+  }
 }
 </style>

@@ -30,13 +30,20 @@ const openModal = () => {
 .head-toggle {
   background-color: var(--white);
   position: absolute;
-  height: 16rem;
+  height: auto;
   width: min(768px, 100%);
   text-align: center;
   border-radius: 0.75rem;
   line-height: 2;
   padding-block: 2rem;
   border: 0.1rem solid var(--light-gray);
+}
+
+@media (max-width: 767px) {
+  .head-toggle {
+    height: auto;
+    width: 100%;
+  }
 }
 
 img {

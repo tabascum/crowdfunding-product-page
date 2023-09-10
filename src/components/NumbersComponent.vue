@@ -35,26 +35,44 @@ const totalStore = useTotalStore()
   margin-block-start: 18rem;
   border-radius: 0.75rem;
   display: flex;
+  flex-basis: content;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 3rem;
   border: 0.1rem solid var(--light-gray);
 }
 
+@media (max-width: 600px) {
+  .numbers-container {
+    height: 100%;
+  }
+
+  .backers {
+    width: 100%;
+    flex-direction: column;
+    border: none;
+  }
+}
+
 .backers {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
 }
 
 .backers div {
-  width: 15rem;
+  width: 100%;
   gap: 1rem;
 }
 
-.backers div:nth-child(-n + 2) {
-  border-inline-end: 0.15rem solid var(--light-gray);
-  margin-inline-end: 3rem;
+.backers div:nth-child(2) {
+  border-inline: 0.15rem solid var(--light-gray);
+  padding-inline-start: 2rem;
+}
+
+.backers div:nth-child(3) {
+  padding-inline-start: 2rem;
 }
 
 .backers h1 {

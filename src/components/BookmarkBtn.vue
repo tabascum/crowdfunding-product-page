@@ -70,4 +70,14 @@ p {
 input {
   display: none;
 }
+
+@media (max-width: 767px) {
+  .bookmark-container {
+    width: 3.5rem;
+  }
+
+  p {
+    display: none;
+  }
+}
 </style>

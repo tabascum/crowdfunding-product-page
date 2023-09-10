@@ -112,6 +112,14 @@ const openModal = () => {
   border: 0.1rem solid var(--light-gray);
 }
 
+@media (max-width: 767px) {
+  .about-container {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
 .about-container h1 {
   color: var(--black);
   font-weight: var(--fw-bolder);

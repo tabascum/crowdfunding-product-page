@@ -9,8 +9,7 @@ export const useTotalStore = defineStore('total', {
     totalValue: 89914,
     totalBackers: 5007,
     bambooTotal: 101,
-    blackEditionTotal: 64,
-    availablePledge: 0
+    blackEditionTotal: 64
   }),
   actions: {
     addToTotal(value) {
