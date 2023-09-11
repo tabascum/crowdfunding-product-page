@@ -114,9 +114,10 @@ const openModal = () => {
 
 @media (max-width: 767px) {
   .about-container {
-    display: block;
-    height: 100%;
+    height: 200vh;
     width: 100%;
+    padding: 1.5rem;
+    gap: 1rem;
   }
 }
 

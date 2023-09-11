@@ -110,6 +110,10 @@ const updateTotalAndOpenModal = (section) => {
                   You get an ergonomic stand made of natural bamboo. You've helped us launch our
                   promotional campaign, and you’ll be added to a special Backer member list.
                 </p>
+
+                <p class="value-mobile">
+                  <strong>{{ totalStore.bambooTotal }}</strong> left
+                </p>
               </div>
             </div>
 
@@ -151,6 +155,10 @@ const updateTotalAndOpenModal = (section) => {
                 <p>
                   You get a Black Special Edition computer stand and a personal thank you. You’ll be
                   added to our Backer member list. Shipping is included.
+                </p>
+
+                <p class="value-mobile">
+                  <strong>{{ totalStore.blackEditionTotal }}</strong> left
                 </p>
               </div>
             </div>
@@ -376,7 +384,12 @@ input[type='radio'].checkmark::after {
   align-self: flex-end;
 }
 
-.value strong {
+.value-mobile {
+  display: none;
+}
+
+.value strong,
+.value-mobile strong {
   font-size: large;
   font-weight: var(--fw-bolder);
   color: var(--black);
@@ -407,5 +420,32 @@ input[type='text']:is(:focus-visible) {
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .modal-card {
+    padding: 1.5rem;
+  }
+
+  .value {
+    display: none;
+  }
+
+  .value-mobile {
+    display: block;
+  }
+
+  .pledge-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .card-footer {
+    flex-direction: column;
+  }
 }
 </style>

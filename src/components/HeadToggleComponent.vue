@@ -43,6 +43,11 @@ const openModal = () => {
   .head-toggle {
     height: auto;
     width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  img {
+    top: -1rem;
   }
 }
 

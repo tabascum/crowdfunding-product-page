@@ -35,7 +35,7 @@
   .about-inner-card {
     height: auto;
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     gap: 0.5rem;
   }
 

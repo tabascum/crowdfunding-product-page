@@ -48,7 +48,7 @@ body::before {
   position: absolute;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body::before {
     background: url('../components/images/image-hero-mobile.jpg') no-repeat top;
   }

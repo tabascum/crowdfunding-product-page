@@ -45,12 +45,21 @@ const totalStore = useTotalStore()
 @media (max-width: 600px) {
   .numbers-container {
     height: 100%;
+    padding: 1rem 1.5rem;
   }
 
   .backers {
     width: 100%;
     flex-direction: column;
-    border: none;
+    text-align: center;
+  }
+
+  .backers div {
+    width: 100%;
+  }
+
+  .backers div:nth-child(2) {
+    border-inline: transparent;
   }
 }
 
