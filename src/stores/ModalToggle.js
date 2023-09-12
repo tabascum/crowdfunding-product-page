@@ -18,6 +18,9 @@ export const useModalToggle = defineStore('modalAcess', {
       this.isModalOpen = false
     },
 
+    closeMenu() {
+      this.isMenuOpen = false
+    },
     openSucessModal() {
       this.isSucessModalOpen = true
       this.isModalOpen = false

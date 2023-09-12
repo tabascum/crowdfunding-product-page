@@ -104,7 +104,7 @@ const openModal = () => {
   color: var(--dark-gray);
   padding: 3rem;
   border-radius: 0.75rem;
-  top: 54rem;
+  top: 50.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -114,10 +114,11 @@ const openModal = () => {
 
 @media (max-width: 767px) {
   .about-container {
-    height: 200vh;
-    width: 100%;
-    padding: 1.5rem;
+    height: auto;
+    width: 90%;
+    padding: 1rem;
     gap: 1rem;
+    top: 55rem;
   }
 }
 

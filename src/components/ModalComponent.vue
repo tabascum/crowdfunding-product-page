@@ -59,7 +59,7 @@ const updateTotalAndOpenModal = (section) => {
         <div class="modal-content-inner">
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="noReward" />
+              <input type="radio" name="text" id="noRewardRadio" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -93,7 +93,7 @@ const updateTotalAndOpenModal = (section) => {
 
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="bambooStand" />
+              <input type="radio" name="text" id="bambooStandRadio" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -139,7 +139,7 @@ const updateTotalAndOpenModal = (section) => {
 
           <div class="modal-card">
             <div class="card-radio">
-              <input type="radio" name="text" id="blackEditionStand" />
+              <input type="radio" name="text" id="blackEditionStandRadio" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -185,7 +185,7 @@ const updateTotalAndOpenModal = (section) => {
 
           <div class="modal-card disabled">
             <div class="card-radio">
-              <input type="radio" name="text" id="" />
+              <input type="radio" name="text" id="disabled" />
               <span class="checkmark"></span>
             </div>
             <div class="pledge">
@@ -267,6 +267,7 @@ const updateTotalAndOpenModal = (section) => {
 }
 
 .modal-card {
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -424,8 +425,8 @@ input[type='text']:is(:focus-visible) {
 
 @media (max-width: 767px) {
   .modal-content {
-    width: 90%;
     padding: 1.5rem;
+    width: 90%;
   }
 
   .modal-card {

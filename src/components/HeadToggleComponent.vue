@@ -35,26 +35,34 @@ const openModal = () => {
   text-align: center;
   border-radius: 0.75rem;
   line-height: 2;
-  padding-block: 2rem;
+  padding: 2rem 2.5rem;
   border: 0.1rem solid var(--light-gray);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 2rem;
 }
 
 @media (max-width: 767px) {
   .head-toggle {
     height: auto;
-    width: 100%;
-    padding: 1.5rem 1rem;
+    width: 90%;
+    padding: 1.5rem;
+    top: 15rem;
   }
 
-  img {
-    top: -1rem;
+  .buttons-container {
+    width: 100%;
   }
 }
 
 img {
   position: absolute;
-  top: -1.5rem;
-  left: 22rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -64,12 +72,5 @@ h1 {
 
 p {
   color: var(--dark-gray);
-}
-
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  margin-block-start: 2rem;
-  padding-inline: 3rem;
 }
 </style>

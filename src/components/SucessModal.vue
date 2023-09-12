@@ -61,4 +61,11 @@ const modalToggle = useModalToggle()
   margin-block-start: 1rem;
   font-size: 0.9rem;
 }
+
+@media (max-width: 767px) {
+  .modal-sucess-content {
+    width: 90%;
+    padding: 2rem;
+  }
+}
 </style>

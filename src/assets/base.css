@@ -34,6 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   background-color: var(--very-light-gray);
+  padding: 1rem;
 }
 
 body::before {
@@ -51,5 +52,6 @@ body::before {
 @media (max-width: 767px) {
   body::before {
     background: url('../components/images/image-hero-mobile.jpg') no-repeat top;
+    background-size: contain;
   }
 }

@@ -30,9 +30,9 @@ const totalStore = useTotalStore()
 .numbers-container {
   position: absolute;
   background-color: var(--white);
-  height: 13rem;
+  height: auto;
   width: min(768px, 100%);
-  margin-block-start: 18rem;
+  margin-block-start: 16rem;
   border-radius: 0.75rem;
   display: flex;
   flex-basis: content;
@@ -40,33 +40,36 @@ const totalStore = useTotalStore()
   justify-content: space-between;
   padding: 2rem 3rem;
   border: 0.1rem solid var(--light-gray);
+  gap: 1.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .numbers-container {
-    height: 100%;
-    padding: 1rem 1.5rem;
+    height: auto;
+    width: 90%;
+    padding: 1rem;
+    margin-block-start: 19.7rem;
   }
 
   .backers {
-    width: 100%;
+    width: auto;
     flex-direction: column;
     text-align: center;
   }
 
-  .backers div {
-    width: 100%;
+  .backers div:nth-child(2) {
+    padding-inline-start: none;
+    border-inline: 0.1rem solid transparent !important;
   }
 
-  .backers div:nth-child(2) {
-    border-inline: transparent;
+  .backers div:nth-child(3) {
+    padding-inline-start: none;
   }
 }
 
 .backers {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -76,12 +79,12 @@ const totalStore = useTotalStore()
 }
 
 .backers div:nth-child(2) {
-  border-inline: 0.15rem solid var(--light-gray);
-  padding-inline-start: 2rem;
+  padding-inline-start: 1.5rem;
+  border-inline: 0.1rem solid var(--dark-gray);
 }
 
 .backers div:nth-child(3) {
-  padding-inline-start: 2rem;
+  padding-inline-start: 1.5rem;
 }
 
 .backers h1 {

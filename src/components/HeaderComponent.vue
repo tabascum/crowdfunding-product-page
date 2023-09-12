@@ -1,8 +1,8 @@
-<scrip setup>
+<script setup>
+import { useModalToggle } from '../stores/ModalToggle'
 
-
-
-</scrip>
+const isMenuOpen = useModalToggle()
+</script>
 
 <template>
   <header class="navbar-container">
@@ -18,9 +18,14 @@
         <li>Discover</li>
         <li>Get Started</li>
       </ul>
-      <img class="hamburguer-menu" src="./icons/icon-hamburger.svg" />
-      <span class="responsive-navbar">
-        <ul>
+      <img
+        @click="isMenuOpen ? isMenuOpen.openMenu() : isMenuOpen.closeMenu()"
+        class="hamburguer-menu"
+        src="./icons/icon-hamburger.svg"
+      />
+
+      <span v-if="isMenuOpen.isMenuOpen" @close="isMenuOpen.closeMenu" class="responsive-navbar-bg">
+        <ul class="responsive-navbar">
           <li>About</li>
           <li>Discover</li>
           <li>Get Started</li>
@@ -62,13 +67,14 @@ li {
 }
 
 .hamburguer-menu,
-.responsive-navbar {
+.responsive-navbar-bg {
   display: none;
 }
 
 @media (max-width: 767px) {
   .navbar-container {
     position: relative;
+    padding-block: 1.5rem;
   }
   .desktop-navbar {
     display: none;
@@ -79,9 +85,18 @@ li {
     cursor: pointer;
   }
 
+  .responsive-navbar-bg {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
   .responsive-navbar {
-    top: 7rem;
-    width: 100%;
+    top: 5rem;
+    width: 90%;
     position: absolute;
     background-color: var(--white);
     border-radius: 0.5rem;
