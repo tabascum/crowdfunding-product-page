@@ -1,4 +1,4 @@
-# Frontend Mentor - Crowdfunding product page solution -> Ongoing project
+# Frontend Mentor - Crowdfunding product page solution
 
 This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
@@ -57,18 +57,3 @@ I'll be practicing more the use of Vue, since there's a lot of room to learn and
 ## Author
 
 - Frontend Mentor - [@tabascum](https://www.frontendmentor.io/profile/tabascum)
-
-````
-### Steps yet to do:
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-````
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```

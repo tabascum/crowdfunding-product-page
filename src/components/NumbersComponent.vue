@@ -60,6 +60,7 @@ const totalStore = useTotalStore()
   .backers div:nth-child(2) {
     padding-inline-start: none;
     border-inline: 0.1rem solid transparent !important;
+    border-block: 0.1rem solid var(--light-gray);
   }
 
   .backers div:nth-child(3) {
@@ -80,7 +81,7 @@ const totalStore = useTotalStore()
 
 .backers div:nth-child(2) {
   padding-inline-start: 1.5rem;
-  border-inline: 0.1rem solid var(--dark-gray);
+  border-inline: 0.1rem solid var(--light-gray);
 }
 
 .backers div:nth-child(3) {

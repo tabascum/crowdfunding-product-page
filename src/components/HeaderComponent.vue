@@ -18,11 +18,7 @@ const isMenuOpen = useModalToggle()
         <li>Discover</li>
         <li>Get Started</li>
       </ul>
-      <img
-        @click="isMenuOpen ? isMenuOpen.openMenu() : isMenuOpen.closeMenu()"
-        class="hamburguer-menu"
-        src="./icons/icon-hamburger.svg"
-      />
+      <img @click="isMenuOpen.openMenu" class="hamburguer-menu" src="./icons/icon-hamburger.svg" />
 
       <span v-if="isMenuOpen.isMenuOpen" @close="isMenuOpen.closeMenu" class="responsive-navbar-bg">
         <ul class="responsive-navbar">
@@ -30,6 +26,9 @@ const isMenuOpen = useModalToggle()
           <li>Discover</li>
           <li>Get Started</li>
         </ul>
+        <picture>
+          <img @click="isMenuOpen.closeMenu" src="./icons/icon-close-menu.svg" alt="" />
+        </picture>
       </span>
     </nav>
   </header>
@@ -76,6 +75,10 @@ li {
     position: relative;
     padding-block: 1.5rem;
   }
+
+  nav {
+    width: 95%;
+  }
   .desktop-navbar {
     display: none;
   }
@@ -92,6 +95,13 @@ li {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+  }
+
+  .responsive-navbar-bg img {
+    position: absolute;
+    top: 2.6rem;
+    left: 91.25%;
+    z-index: 2;
   }
 
   .responsive-navbar {

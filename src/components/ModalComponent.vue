@@ -19,12 +19,12 @@ const updateTotalAndOpenModal = (section) => {
     inputValue = parseInt(noRewardInputValue.value) || 0
   } else if (section === 'bambooStand') {
     inputValue = parseInt(bambooStandInputValue.value) || 0
-    if (inputValue > 0) {
+    if (bambooStandInputValue.value > 0) {
       totalStore.decrementBambooTotal()
     }
   } else if (section === 'blackEditionStand') {
     inputValue = parseInt(blackEditionStandInputValue.value) || 0
-    if (inputValue > 0) {
+    if (blackEditionStandInputValue.value > 0) {
       totalStore.decrementBlackEditionTotal()
     }
   }
